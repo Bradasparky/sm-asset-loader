@@ -3,6 +3,10 @@ Automatically precaches and downloads assets via json config
 
 Only supports precaching of mdl, vmt, wav, and mp3 because I've never needed to precache anything else
 
+By default the plugin sets `#pragma dynamic 32768` to help with json object memory consumption
+
+You may need to recompile with a higher value if you run out of memory
+
 ## Dependencies
 - [sm-json](https://github.com/clugg/sm-json) by clugg
 
