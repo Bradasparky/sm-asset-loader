@@ -1,8 +1,12 @@
 {
-    "precache": [
+    "maps": {
+        ".*": {
+            "precache": [
 
-    ],
-    "download": [
+            ],
+            "download": [
 
-    ]
+            ]
+        }
+    }
 }
