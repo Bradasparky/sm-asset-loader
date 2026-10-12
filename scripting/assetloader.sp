@@ -12,7 +12,7 @@ public Plugin myinfo =
 	author = "Bradasparky, Heapons",
 	description = "Automatically precaches and downloads assets via json config",
 	version = "1.1.0",
-	url = "https://github.com/Heapons/sm-asset-loader"
+	url = "https://github.com/Bradasparky/sm-asset-loader"
 };
 
 enum
@@ -147,7 +147,7 @@ void ProcessAssets(JSONObject hMapEntry, const char[] sType)
             if (!FileExists(sEntry, true))
             {
                 if (bLog)
-                    PrintToServer(" ! %s", sEntry);
+                    PrintToServer(" - %s", sEntry);
                 continue;
             }
             
