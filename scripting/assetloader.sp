@@ -4,7 +4,6 @@
 
 #pragma semicolon 1
 #pragma newdecls required
-#pragma dynamic 32768
 
 public Plugin myinfo = 
 {
