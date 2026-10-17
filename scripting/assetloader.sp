@@ -159,6 +159,12 @@ void ProcessAssets(JSONObject hMapEntry, const char[] sType)
         if (hRegex == null)
             continue;
         
+        if (FileExists(sEntry))
+        {
+            ProcessFile(sEntry, bDownload, bLog);
+            continue;
+        }
+
         char sDir[PLATFORM_MAX_PATH];
         strcopy(sDir, iSlash + 2, sEntry);
         
