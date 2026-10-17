@@ -1,6 +1,6 @@
 #include <sdktools>
 #include <regex>
-#include <ripext/json>
+#include <ripext>
 
 #pragma semicolon 1
 #pragma newdecls required
