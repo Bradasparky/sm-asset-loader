@@ -41,14 +41,15 @@ public void OnPluginStart()
     g_hExts.SetValue("vmt", Precache_Model);
     g_hExts.SetValue("mdl", Precache_Model);
 
-    g_cvLog = CreateConVar("sm_assetloader_log", "0", "Toggle precached asset logging.", _, true, 0.0, true, 1.0);
+    g_cvLog = CreateConVar("sm_assetloader_log", "0", "Toggle asset logging.", _, true, 0.0, true, 1.0);
     RegAdminCmd("sm_reload_assets", Command_ParseAssets, ADMFLAG_ROOT, "Reload the asset config.");
 }
 
 Action Command_ParseAssets(int iClient, int iArgs)
 {
     ParseAssets();
-    ReplyToCommand(iClient, "[SM] Parsed assets successfully!");
+    ReplyToCommand(iClient, "[SM] Successfully loaded assets!");
+    
     return Plugin_Handled;
 }
 
@@ -137,7 +138,7 @@ void ParseAssets()
     hFile.Flush();
     delete hFile;
 
-    LogMessage("Successfully logged assets at 'logs/assetloader.log'");
+    LogMessage("Successfully logged assets to 'logs/assetloader.log'");
 }
 
 void ProcessAssets(JSONObject hMapEntry, const char[] sType, bool bLog)
