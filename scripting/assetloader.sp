@@ -199,7 +199,7 @@ void ProcessAssets(JSONObject hMapEntry, const char[] sType, bool bLog)
             continue;
         }
         
-        if (FileExists(sEntry))
+        if (FileExists(sEntry, true))
         {
             ProcessFile(sEntry, bDownload, bLog);
             continue;
