@@ -6,13 +6,14 @@
 #pragma newdecls required
 
 #define MAX_LOG_LINE 512
+#define PLUGIN_VERSION "1.0.0"
 
 public Plugin myinfo = 
 {
 	name = "[ANY] Asset Loader",
 	author = "Bradasparky, Heapons",
 	description = "Automatically precaches and downloads assets via json config",
-	version = "1.1.0",
+	version = PLUGIN_VERSION,
 	url = "https://github.com/Bradasparky/sm-asset-loader"
 };
 
@@ -41,8 +42,11 @@ public void OnPluginStart()
     g_hExts.SetValue("vmt", Precache_Model);
     g_hExts.SetValue("mdl", Precache_Model);
 
-    g_cvLog = CreateConVar("sm_assetloader_log", "0", "Toggle asset logging.", _, true, 0.0, true, 1.0);
+    CreateConVar("sm_assetloader_version", PLUGIN_VERSION, "Plugin version", FCVAR_NOTIFY | FCVAR_DONTRECORD);
+    g_cvLog = CreateConVar("sm_assetloader_log", "0", "Whether to log assets.", FCVAR_NOTIFY, true, 0.0, true, 1.0);
     RegAdminCmd("sm_reload_assets", Command_ParseAssets, ADMFLAG_ROOT, "Reload the asset config.");
+
+    AutoExecConfig(true, "assetloader");
 }
 
 Action Command_ParseAssets(int iClient, int iArgs)
